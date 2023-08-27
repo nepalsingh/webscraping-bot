@@ -3,13 +3,12 @@ import os
 import csv
 
 
-# ueaaxlpfevpufafx
+# 
 os.environ['EMAIL'] = 'nepal.singh@gmail.com';
-os.environ['PASSWORD'] = 'ueaaxlpfevpufafx';
 os.environ['RECEIVER'] = 'jasec4@xidprinting.com'
 
 email = os.environ.get('EMAIL')
-password = os.environ.get('PASSWORD')
+password = os.environ.get('GMAILPASSWORD')
 receiver = os.environ.get('RECEIVER')
 yag = yagmail.SMTP(user=email, password=password)
 
