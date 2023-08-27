@@ -33,7 +33,12 @@ def get_text():
   print(driver.title, clean_text(element.text))
   driver.close()
 
-def get_auth_get():
+def write_text(text):
+  filename = datetime.now().strftime("%d-%m-%Y_%H-%M-%S")
+  with open(f"{filename}.txt", 'w') as f:
+    f.write(str(text))
+
+def get_auth_page():
   driver = get_driver('https://automated.pythonanywhere.com/login/')
   time.sleep(2)
   driver.find_element(by='id',value='id_username').send_keys('automated')
@@ -46,16 +51,14 @@ def get_auth_get():
   element = driver.find_element(by='id',value='displaytimer')
   time.sleep(2)
   print(driver.title,clean_text(element.text))
-  filename = datetime.now().strftime("%d-%m-%Y_%H-%M-%S")
-  with open(f"{filename}.txt", 'w') as f:
-    f.write(str(clean_text(element.text)))
+  write_text(clean_text(element.text))
 
   driver.close()
 
 def main():
   # get_text()
 
-  get_auth_get()
+  get_auth_page()
 
 
 if __name__ == '__main__':
